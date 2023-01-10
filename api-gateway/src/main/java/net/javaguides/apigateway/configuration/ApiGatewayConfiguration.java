@@ -25,6 +25,8 @@ public class ApiGatewayConfiguration {
                         .uri("lb://EMPLOYEE-SERVICE"))
                 .route(p -> p.path("/api/department/**")
                         .uri("lb://DEPARTMENT-SERVICE"))
+                .route(p -> p.path("/api/organization/**")
+                        .uri("lb://ORGANIZATION-SERVICE"))
                 .build();
     }
 
