@@ -1,0 +1,60 @@
+version: "3.3"
+
+services:
+  service-registry:
+    container_name: service-registry-compose
+    image: service-registry:0.0.2-SNAPSHOT
+    network_mode: "host"
+    ports:
+      - "8888:8888"
+    restart: on-failure
+
+  api-gateway:
+    container_name: api-gateway-compose
+    image: api-gateway:0.0.2-SNAPSHOT
+    network_mode: "host"
+    restart: on-failure
+    ports:
+      - "9191:9191"
+    depends_on:
+      - employee-service
+
+  organization-service:
+    container_name: organization-service-compose
+    image: organization-service:0.0.2-SNAPSHOT
+    network_mode: "host"
+    restart: on-failure
+    ports:
+      - "8086:8086"
+    depends_on:
+      - config-service
+
+  employee-service:
+    container_name: employee-service-compose
+    image: employee-service:0.0.2-SNAPSHOT
+    network_mode: "host"
+    restart: on-failure
+    depends_on:
+      - department-service
+    ports:
+      - "8081:8081"
+
+  department-service:
+    container_name: department-service-compose
+    image: department-service:0.0.2-SNAPSHOT
+    depends_on:
+      - config-service
+    network_mode: "host"
+    ports:
+      - "8080:8080"
+    restart: on-failure
+
+  config-service:
+    container_name: config-service-compose
+    image: config-service:0.0.2-SNAPSHOT
+    depends_on:
+      - service-registry
+    network_mode: "host"
+    ports:
+      - "8761:8761"
+    restart: on-failure

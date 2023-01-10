@@ -1,0 +1,20 @@
+7e
+dincer@dincer-lenovo:~/Development/Courses/spring/javaguides/spring-cloud-services/api-gateway$ docker ps
+CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS          PORTS     NAMES
+a2d023ad477a   6adb           "java -jar springboo…"   2 seconds ago    Up 1 second               zealous_tu
+fcd8802586c5   9082           "java -jar springboo…"   2 minutes ago    Up 2 minutes              priceless_noether
+47baf0335039   aedd           "java -jar springboo…"   10 minutes ago   Up 10 minutes             cranky_mendel
+2e1d396d076e   227            "java -jar springboo…"   17 minutes ago   Up 17 minutes             naughty_bohr
+5034e34995d0   mysql          "docker-entrypoint.s…"   18 minutes ago   Up 18 minutes             zealous_jones
+1af52ff221c5   0e5d           "java -jar springboo…"   24 minutes ago   Up 24 minutes             zealous_visvesvaraya
+81b8f999e28c   f126631a45a6   "java -jar springboo…"   24 minutes ago   Up 24 minutes             unruffled_allen
+dincer@dincer-lenovo:~/Development/Courses/spring/javaguides/spring-cloud-services/api-gateway$ docker images
+REPOSITORY                                                            TAG                     IMAGE ID       CREATED             SIZE
+api-gateway                                                           0.0.2-SNAPSHOT          6adb38b313c6   2 minutes ago       504MB
+organization-service                                                  0.0.2-SNAPSHOT          9082c0aa526e   5 minutes ago       541MB
+employee-service                                                      0.0.2-SNAPSHOT          aeddb963c742   12 minutes ago      542MB
+department-service                                                    0.0.2-SNAPSHOT          22730bd895c2   22 minutes ago      542MB
+service-registry                                                      0.0.2-SNAPSHOT          0e5dda4bd03b   31 minutes ago      507MB
+config-service                                                        0.0.2-SNAPSHOT          f126631a45a6   32 minutes ago      509MB
+mysql                                                                 with_db                 424db86a5b00   About an hour ago   538MB
+

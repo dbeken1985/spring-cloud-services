@@ -1,0 +1,40 @@
+version: "3.3"
+
+services:
+  # department-servic:
+  #   container_name: department-service
+  #   build:
+  #     context: department-service
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "8080:8080"
+  #   depends_on:
+  #     - configuration_service
+  #   networks:
+  #     javaguides:
+  #   restart: on-failure
+  config-server:
+    container_name: config-server
+    build:
+      context: config-server
+      dockerfile: Dockerfile
+    ports:
+      - "8888:8888"
+    depends_on:
+      - service-registry
+    networks:
+      javaguides:
+    restart: on-failure
+  service-registry:
+    container_name: service-registry-1
+    build:
+      context: service-registry
+      dockerfile: Dockerfile
+    ports:
+      - "8761:8761"
+    networks:
+      javaguides:
+    restart: on-failure
+
+networks:
+  javaguides:
